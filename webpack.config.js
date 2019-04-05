@@ -5,7 +5,6 @@ module.exports =  {
     mode: 'development',
     entry: {
         main: [
-            './js/index.js',
             './css/index.scss'
         ],
     },
