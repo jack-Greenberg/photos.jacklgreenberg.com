@@ -1,0 +1,9 @@
+admin/
+build/
+images/
+node_modules/
+private/
+tmp/
+.atom-build.json
+.ftpconfig
+db_config.json
