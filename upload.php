@@ -5,7 +5,7 @@ using bcrypt.
 
 <?php
 require(dirname(__FILE__).'/includes/functions.php');
-ini_set('file_uploads', 1); // allow file uploads
+ini_set('file_uploads', 1); // allow file uploads  
 
 if ( isset($_POST["submit"]) ) {
     $last_id = $db->select("posts", "id", [
@@ -18,7 +18,7 @@ if ( isset($_POST["submit"]) ) {
     if ($last_id == []) {
         $new_id = 1;
     } else {
-        $new_id = $last_id[0]["id"] + 1;
+        $new_id = intval($last_id[0]) + 1;
     };
 
     $filetype = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION)); // returns 'jpg' or 'png' or whatever
