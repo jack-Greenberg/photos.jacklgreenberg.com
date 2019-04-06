@@ -1,11 +1,8 @@
-<!--
-Responsible for uploading images. The system includes password authentication
-using bcrypt.
--->
-
 <?php
+// Responsible for uploading images. The system includes password authentication
+// using bcrypt.
 require(dirname(__FILE__).'/includes/functions.php');
-ini_set('file_uploads', 1); // allow file uploads  
+ini_set('file_uploads', 1); // allow file uploads
 
 if ( isset($_POST["submit"]) ) {
     $last_id = $db->select("posts", "id", [
@@ -60,13 +57,15 @@ if ( isset($_POST["submit"]) ) {
     <link rel="stylesheet" href="/build/bundle.css">
 </head>
 <body>
-    <h1 class="upload-title">Post a photo</h1>
+    <main class="upload-container">
+        <h1 class="upload-title">Post a photo</h1>
 
-    <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
-        <input type="file" name="image" id="image"><br>
-        <input type="text" name="caption" id="caption" placeholder="Caption"><br>
-        <input type="password" name="secret" id="secret" placeholder="Secret"><br>
-        <input type="submit" name="submit" value="Submit">
-    </form>
+        <form class="upload-form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+            <input type="file" name="image" id="image"><br>
+            <input type="text" name="caption" id="caption" placeholder="Caption"><br>
+            <input type="password" name="secret" id="secret" placeholder="Secret"><br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </main>
 </body>
 </html>
