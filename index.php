@@ -39,15 +39,18 @@ function render_post($id) {
     $filetype = $post_data["filetype"];
     $caption = $post_data["caption"];
     $date = $post_data["date"];
-    $images = array(
-        's' => $id . '-320.' . $filetype,
-        'm' => $id . '-640.' . $filetype,
-        'l' => $id . '-960.' . $filetype,
-        'xl' => $id . '-1280.' . $filetype
-    );
+    $images = array_diff(scandir("images/".strval($id), SCANDIR_SORT_DESCENDING), array('..', '.'));
 
-    $srcset = $images['s'] . ' 320w, ' . $images['m'] . ' 640w, ' . $images['l'] . ' 960w, ' . $images['xl'] . ' 1280w';
-    $src = $images['xl'];
+    $srcset = '';
+    $prefix = "/images/" . $id . '/';
+    foreach($images as $image) {
+        $tmp = explode('-', $image)[1];
+        $size = explode('.', $tmp)[0];
+
+        $srcset .= $prefix . $image . ' ' . $size . 'w, ';
+    };
+
+    $src = $prefix . $images[0];
 
     echo $ms_template->render('post', array('id' => $id, 'caption' => $caption, 'date' => $date, 'srcset' => $srcset, 'src' => $src));
 };
