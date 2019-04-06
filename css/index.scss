@@ -2,3 +2,44 @@
 @import 'post.scss';
 @import 'reset.scss';
 @import 'function-page.scss';
+
+.header-container {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+}
+.header {
+    width: 100%;
+    text-align: center;
+
+    @media only screen and (min-width: $small) {
+        font-size: 1.1em;
+    }
+
+    &__content {
+
+        .page-title {
+            font-family: $sans;
+            font-style: italic;
+            font-size: 2em;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .highlight {
+                background-color: $black;
+                color: $white;
+                padding: 0 .1em;
+                display: table;
+                margin: 0 auto;
+
+                @media only screen and (min-width: $small) {
+                    display: inline;
+                    margin: 0 0 0 .75em;
+                }
+            }
+        }
+    }
+}

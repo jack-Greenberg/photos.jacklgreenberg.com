@@ -1,0 +1,30 @@
+.post {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 40rem;
+    display: flex;
+    margin-bottom: 2em;
+    flex-direction: column;
+
+    @media only screen and (min-width: $small) {
+        font-size: 1.1em;
+    }
+
+    &__date {
+        font-family: $sans;
+        font-style: italic;
+        margin-bottom: .5em;
+    }
+    &__image {
+        flex-grow: 2;
+        text-align: center;
+
+        img {
+            width: 100%;
+        }
+        h2 {
+            font-family: $sans;
+        }
+    }
+
+}

@@ -1,0 +1,20 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i');
+
+// Variables
+$bg-color: #fff;
+$header-bg-color: #f1f1f2;
+$theme: #000;
+
+$theme--darker: darken($theme, 20%);
+$theme--dark: darken($theme, 10%);
+$theme-base: $theme;
+$theme--light: lighten($theme, 10%);
+$theme--lighter: lighten($theme, 20%);
+
+$sans: 'Lato', Arial, Helvetica, sans-serif;
+
+$black: #000;
+$white: #fff;
+
+$small: 425px;
