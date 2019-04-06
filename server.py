@@ -1,4 +1,4 @@
-from PIL import Image, ImageFile
+from PIL import Image
 from PIL.ExifTags import TAGS as EXIF_TAGS
 from os.path import join, basename, dirname, realpath
 import os
@@ -6,8 +6,6 @@ import sys
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
-ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def process_image(img, metadata):
     # Define orientations for rotating the image
