@@ -1,9 +1,7 @@
-<!--
-This file provides the set up for the functions used. It is where the Mustache
-and Medoo instances are set up, and the config is created.
--->
-
 <?php
+//This file provides the set up for the functions used. It is where the Mustache
+// and Medoo instances are set up, and the config is created.
+
 /*
 * Autoload composer files
 */

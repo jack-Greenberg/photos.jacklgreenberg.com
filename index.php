@@ -1,18 +1,16 @@
-<!--
-Main file, where the blog pages are served from. It first checks to see if
-the URI includes anything beyond the trailing slash (i.e. jacklgreenberg.com/1),
-and if it does, looks for an image post with the same number. If it is found,
-just the image is generated. If not, there is a 404. If it is just an ordinary
-request (jacklgreenberg.com), then it shows all the posts
-
-On the NGINX server, I have routed all URIs matching ^/([0-9]+) (any numbers) to this page, index.php, preserving arguments:
-
-location ~ ^/([0-9]+) {
-    try_files $uri /index.php$is_args$args;
-}
--->
-
 <?php
+// Main file, where the blog pages are served from. It first checks to see if
+// the URI includes anything beyond the trailing slash (i.e. jacklgreenberg.com/1),
+// and if it does, looks for an image post with the same number. If it is found,
+// just the image is generated. If not, there is a 404. If it is just an
+// ordinary request (jacklgreenberg.com), then it shows all the posts
+//
+// On the NGINX server, I have routed all URIs matching ^/([0-9]+)
+// (any numbers) to this page, index.php, preserving arguments:
+//
+// location ~ ^/([0-9]+) {
+//     try_files $uri /index.php$is_args$args;
+// }
 /*
 * Each page requires these two
 */
@@ -74,6 +72,9 @@ if ($request == ""):
     };
 
 else: // If the URI request includes a number (i.e. jacklgreenberg.com/1)
+    echo $ms_template->render('header', array('title' => $title, 'author' => $author, 'url' => $url));
+    echo("<main>");
+    
     $id = $request;
     if (in_array($id, scandir("images"))) {
         render_post($id); // Just render that post
