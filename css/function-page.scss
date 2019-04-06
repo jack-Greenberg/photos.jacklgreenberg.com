@@ -1,0 +1,22 @@
+.upload-container {
+    width: 90%;
+    max-width: 20em;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10em;
+}
+.upload-title {
+    font-family: $sans;
+    color: $dark-blue;
+    font-weight: 700;
+    font-size: 2em;
+}
+.upload-form {
+
+    input[type="file"] {
+
+        // &::-webkit-file-upload-button {
+            // visibility: hidden;
+        // }
+    }
+}
