@@ -64,9 +64,15 @@ if ($request == ""):
     /*
     * Get
     */
+    $int_post_numbers = [];
     $post_numbers = array_diff(scandir("images", SCANDIR_SORT_DESCENDING), array('..', '.'));
+    foreach($post_numbers as $number) {
+        array_push($int_post_numbers, intval($number));
+    };
 
-    foreach($post_numbers as $post) {
+    rsort($int_post_numbers);
+
+    foreach($int_post_numbers as $post) {
         $id = $post;
         render_post($id);
     };
@@ -74,7 +80,7 @@ if ($request == ""):
 else: // If the URI request includes a number (i.e. jacklgreenberg.com/1)
     echo $ms_template->render('header', array('title' => $title, 'author' => $author, 'url' => $url));
     echo("<main>");
-    
+
     $id = $request;
     if (in_array($id, scandir("images"))) {
         render_post($id); // Just render that post
